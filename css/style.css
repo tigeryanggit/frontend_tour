@@ -24,7 +24,7 @@
     --grey-10:hsl(189,36%,98%);
     --primary-white: #fff;
     --ff-primary:"Noto Serif", serif;
-    --transition: all 0.8s linear;
+    --transition: all 0.5s linear;
     --spacing: 0.25rem;
     --radius: 0.5rem;
     --light-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -118,12 +118,13 @@ span {
     top:0;
     left:0;
     z-index: 1 ;
+    box-shadow: var(--dark-shadow);
     
 }
 
 .navbar .logo {
     width: var(--nav-height);
-    padding: 2px;
+    padding: 5px;
 
 }
 
@@ -138,6 +139,11 @@ span {
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    a {
+        color: var(--primary-4);
+        font-size: 1.2rem;
+    }
+    
 }
 
 
@@ -147,7 +153,7 @@ span {
     bottom: 0;
     left:0;
     width:100%;
-    background-color: var(--grey-5);
+    background-color: var(--grey-8);
     text-align: center;
     transition: var(--transition);
     transform:translateX(-100%);
@@ -244,9 +250,9 @@ span {
     top: 0px;
     left: 0px;
     width: 100%;
-    height: 100%;
-    opacity: 0.2;
-    background: var(--grey-7);
+    height: 100vh;
+    opacity: 0.5;
+    background: var(--grey-5);
 }
 
 .hero .btn {
@@ -297,6 +303,7 @@ span {
 .about, .services, .tours {
 
     padding-top: var(--nav-height);
+    margin-bottom: 4rem;
 
 }
 
@@ -306,32 +313,284 @@ span {
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
-    padding: 0 45px;
-    gap: 20px;
+    padding: 0 2.8rem;
+    gap: 1.25rem;
     position: relative;
 
 }
 
 .about-img {
     width:50%;
+    
 }
 
 
+@media(min-width:800px) {
+    .about-img::before {
+    content: "";    
+    position: absolute;
+    width: calc(50% - 2.8rem);
+    height: 100%;
+    box-sizing: border-box;
+    top: -1.25rem;
+    left: 1.25rem;
+    border: 3px solid var(--primary-4);
+    z-index: -1;
+    }
+
+}
+
+/* 
 .about-img::before {
     content: "";    
     position: absolute;
-
-    width: calc(50% - 45px);
+    width: calc(50% - 2.8rem);
     height: 100%;
     box-sizing: border-box;
-    top: -20px;
-    left: 20px;
+    top: -1.25rem;
+    left: 1.25rem;
     border: 3px solid var(--primary-4);
     z-index: -1;
 }
+ */
 
 
-
-.text {
+.about-text {
     width:50%;
+
+    h3 {
+        color: var(--primary-3);
+    }
+
+    .btn-about {
+        padding: 0.5rem;
+        background-color: var(--primary-5);
+        color: var(--primary-white);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        
+
+    }
+
+    .btn-about:hover {
+        background-color: var(--primary-8);
+        color:var(--primary-4);
+    }
 }
+
+
+@media(max-width: 576px) {
+    .about-content {
+        flex-direction: column;
+        
+    }
+    .about-img, .about-text {
+        width:100%;
+
+    }
+    h3 {
+        font-size: 1rem;
+    }
+}
+
+
+
+/* services */
+.services {
+  height: 50vh;
+  background-color: var(--grey-10);
+}
+
+.services-content {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: 1.5rem;
+  align-items: start;
+  justify-content: center;
+}
+
+
+.service-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+
+
+}
+.service-title .fa-solid {
+  font-size: 1.5rem;
+  background-color: var(--primary-5);
+  color: var(--primary-3);
+  padding: 1rem 1rem;
+  /* letter-spacing: 2px; */
+  width: 4rem;
+}
+
+.service-title h3 {
+  margin: 0 1rem;
+  font-size: 1rem;
+  width: 7rem;
+  padding-left: 0.75rem;
+  /* text-align: center; */
+}
+.service-title p {
+  font-size: 1rem;
+  margin-top: 0;
+  width: 12rem;
+}
+/* tours */
+
+
+
+/* ==================================================== */
+@media (max-width: 1099px) and (min-width:577px)  {
+  .services {
+    height: 75vh;
+    }
+
+  .services-content {
+    width: 100%;    
+    }  
+
+  .service-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 16rem;
+    }
+
+    .service-title p {
+    padding:0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .services {
+        height: 100vh;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+    .services-content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .service-title {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        gap: 0.8rem;
+
+        h3 {
+            font-size: 1rem;
+            width: 100%;
+            padding: 0.5rem;
+
+        }
+        p {
+            font-size: 0.75rem;
+            width: 60%;
+        }
+    }
+    .service-title .fa-solid {
+    font-size: 1.75rem;
+    
+    padding: 1.1rem 0rem;
+    /* letter-spacing: 2px; */
+    width: 3.5rem;
+    }
+
+}
+
+/* ==================================================== */
+/* Tours */
+
+.tours {
+    padding: 2rem;
+}
+
+.cards {
+  width: 100%;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+  justify-content: center;
+
+}
+
+
+.card {
+    box-shadow: var(--dark-shadow);
+
+}
+
+.card:hover {
+
+    transform: scale(1.03);
+    transition: var(--transition);
+}
+
+
+.card-img {
+    position: relative;
+    
+}
+
+.card-img p {
+    position: absolute;
+    padding: 2px;
+    right: 0;
+    bottom: 0;
+    margin:0;
+    z-index:1;
+    box-shadow: var(--light-shadow);
+    background-color:var(--primary-7);
+
+}
+
+.card-content {
+    background-color:var(--primary-9);
+    padding: 1.5rem 2rem 0.5rem;
+    
+    p {
+        font-size: 1rem;
+        color: var(--primary-7);
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 799px) and (min-width:577px)  {
+
+    .cards {
+  
+      grid-template-columns: 1fr 1fr;
+  
+    }
+}
+
+
+
+@media (max-width: 576px)  {
+
+    .cards {
+  
+      grid-template-columns: 1fr;
+  
+    }
+}
+

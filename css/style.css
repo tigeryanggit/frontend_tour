@@ -594,3 +594,27 @@ span {
     }
 }
 
+/* footer */
+
+.footer {
+    
+    height: 35vh;
+    background-color: var(--primary-3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:var(--primary-white);
+    
+    a,p,span {
+    color:var(--primary-white);
+    
+    }
+    
+}
+
+
+
+.icon-list a {
+    font-size: 2rem;
+}
